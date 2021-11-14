@@ -10,6 +10,11 @@
     "prettier-format": "prettier --config .prettierrc.json src/**/*.ts --write",
     "lint": "eslint . --ext .ts"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier-format && npm run lint"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LBeghini/NumeRomans.git"
@@ -34,6 +39,7 @@
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.3",
+    "husky": "^7.0.4",
     "nodemon": "^2.0.15",
     "prettier": "2.4.1",
     "ts-node": "^10.4.0",
