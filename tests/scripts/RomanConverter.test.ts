@@ -12,7 +12,7 @@ describe('Roman Numeral Converter', () => {
   });
 
   it('should convert roman number with growing characters', () => {
-    expect(RomanConvert('XVII')).toBe(17);
+    expect(RomanConvert('XVIII')).toBe(18);
   });
 
   it('should convert roman number with decreasing characters', () => {
@@ -20,7 +20,32 @@ describe('Roman Numeral Converter', () => {
     expect(RomanConvert('CMXCIX')).toBe(999);
   });
 
+  it('should fail roman number with more than three equal characters', () => {
+    expect(() => RomanConvert('CCXXCC')).toThrow(Error);
+  });
+
+  it('should fail convert roman number with many decreasing character', () => {
+    expect(() => RomanConvert('IIIV')).toThrow(Error);
+    expect(() => RomanConvert('IIV')).toThrow(Error);
+    expect(() => RomanConvert('XXC')).toThrow(Error);
+    expect(() => RomanConvert('XXXL')).toThrow(Error);
+  });
+
+  it('should fail convert number with characters with diferent basis', () => {
+    expect(() => RomanConvert('IL')).toThrow(Error);
+    expect(() => RomanConvert('IC')).toThrow(Error);
+    expect(() => RomanConvert('ID')).toThrow(Error);
+    expect(() => RomanConvert('IM')).toThrow(Error);
+    expect(() => RomanConvert('XD')).toThrow(Error);
+    expect(() => RomanConvert('XM')).toThrow(Error);
+  });
   it('should fail convert number with weird characters', () => {
     expect(() => RomanConvert('QA:SZ')).toThrow(Error);
+  });
+
+  it('should fail specific sequential characters', () => {
+    expect(() => RomanConvert('VVV')).toThrow(Error);
+    expect(() => RomanConvert('LLL')).toThrow(Error);
+    expect(() => RomanConvert('DDD')).toThrow(Error);
   });
 });

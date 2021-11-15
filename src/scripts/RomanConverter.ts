@@ -1,28 +1,57 @@
 import RomanNumeralsValues from '../utils/variables';
+import {
+  assertSetInObject,
+  assertCharacterOccurrences,
+  convertStringToArray,
+} from '../utils/operations';
 
-const isRomanCharacter = (characters: string[]) =>
-  // eslint-disable-next-line implicit-arrow-linebreak
-  characters.every((key) => Object.keys(RomanNumeralsValues).includes(key));
+const isValidRomanNumeral = (characters: string[]) => {
+  const validCharacters = assertSetInObject(characters, RomanNumeralsValues);
+  const validCharacterQuantity = assertCharacterOccurrences(characters, 3);
 
-const convertStringToArray = (str: string) => str.split('');
+  return validCharacters && validCharacterQuantity;
+};
+
+const RomanCharacterToArabic = (characters: string[]) => {
+  let canSubtract: boolean = true;
+  let arabic: number = 0;
+
+  characters.forEach((character, i) => {
+    const currentValue = RomanNumeralsValues[character].value;
+    const nextValue = RomanNumeralsValues[characters[i + 1]]?.value;
+    const belongsToAllowedAssociation = RomanNumeralsValues[character].allowedAssociations.includes(
+      characters[i + 1],
+    );
+
+    if (currentValue < nextValue) {
+      if (canSubtract && belongsToAllowedAssociation) {
+        arabic -= currentValue;
+        canSubtract = false;
+      } else {
+        throw new Error('Invalid');
+      }
+    } else if (currentValue === nextValue) {
+      if (belongsToAllowedAssociation) {
+        arabic += currentValue;
+        canSubtract = false;
+      } else {
+        throw new Error('Invalid');
+      }
+    } else {
+      arabic += currentValue;
+      canSubtract = true;
+    }
+  });
+
+  return arabic;
+};
 
 const RomanConvert = (numeral: string) => {
-  let arabic = 0;
   const characters = convertStringToArray(numeral);
-  if (isRomanCharacter(characters)) {
-    characters.forEach((character, i) => {
-      const currentValue = RomanNumeralsValues[character];
-      const nextValue = RomanNumeralsValues[numeral[i + 1]];
-      if (currentValue < nextValue) {
-        arabic -= currentValue;
-      } else {
-        arabic += currentValue;
-      }
-    });
-  } else {
-    throw new Error('Invalid character');
+  if (isValidRomanNumeral(characters)) {
+    return RomanCharacterToArabic(characters);
   }
-  return arabic;
+  throw new Error('Invalid character');
 };
 
 export default RomanConvert;
