@@ -1,15 +1,15 @@
 import RomanNumeralsValues from '../utils/variables';
 import {
   assertSetInObject,
-  assertCharacterOccurrences,
   convertStringToArray,
+  assertCharacterSequency,
 } from '../utils/operations';
 
 const isValidRomanNumeral = (characters: string[]) => {
   const validCharacters = assertSetInObject(characters, RomanNumeralsValues);
-  const validCharacterQuantity = assertCharacterOccurrences(characters, 3);
+  const validCharacterSequency = assertCharacterSequency(characters, 3);
 
-  return validCharacters && validCharacterQuantity;
+  return validCharacters && validCharacterSequency;
 };
 
 const RomanCharacterToArabic = (characters: string[]) => {

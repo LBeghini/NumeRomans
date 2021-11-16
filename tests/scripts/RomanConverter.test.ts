@@ -20,6 +20,10 @@ describe('Roman Numeral Converter', () => {
     expect(RomanConvert('CMXCIX')).toBe(999);
   });
 
+  it('should convert biggest roman number', () => {
+    expect(RomanConvert('MMMCMXCIX')).toBe(3999);
+  });
+
   it('should fail roman number with more than three equal characters', () => {
     expect(() => RomanConvert('CCXXCC')).toThrow(Error);
   });
@@ -39,6 +43,7 @@ describe('Roman Numeral Converter', () => {
     expect(() => RomanConvert('XD')).toThrow(Error);
     expect(() => RomanConvert('XM')).toThrow(Error);
   });
+
   it('should fail convert number with weird characters', () => {
     expect(() => RomanConvert('QA:SZ')).toThrow(Error);
   });
@@ -47,5 +52,6 @@ describe('Roman Numeral Converter', () => {
     expect(() => RomanConvert('VVV')).toThrow(Error);
     expect(() => RomanConvert('LLL')).toThrow(Error);
     expect(() => RomanConvert('DDD')).toThrow(Error);
+    expect(() => RomanConvert('MMMM')).toThrow(Error);
   });
 });
