@@ -4,6 +4,10 @@
 
 This is an API developed to convert Roman Numerals to integers and vice-versa. 
 
+|  I  |  V  |  X  |  L  |  C  |  D  |  M  |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+|  1  |  5  |  10 |  50 | 100 | 500 | 1000|
+
 ## ✨ Features
 -  convert from normal numbers to Roman Numerals
 -  convert a numeral to digit
