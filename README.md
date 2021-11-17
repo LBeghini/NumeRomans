@@ -37,7 +37,7 @@ To run the code, from a terminal, on the project's root directory, run:
 ```bash
 npm start
 ```
-## 📎 Usage
+## 🧭 Usage
 From a browser, go to url [localhost:5000](localhost:5000).
 If everything is working fine, you should be able to see `It works! 🚀` on the page.
 ### Roman to Number
@@ -55,7 +55,7 @@ localhost:5000/arabic?character={number-to-convert}
 ```
 >Replace {number-to-convert} to any number you want, ranging from 1 to 3999.
 
-## ✔️ Tests
+## 🧪 Tests
 To run the implemented tests, from a terminal, on the project's root directory, run:
 ```
 npm test
