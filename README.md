@@ -35,7 +35,7 @@ npm install
 ## Running
 To run the code, from a terminal, on the project's root directory, run:
 ```bash
-npm run start
+npm start
 ```
 
 ## Development
