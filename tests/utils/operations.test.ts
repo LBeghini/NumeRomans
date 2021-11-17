@@ -4,6 +4,7 @@ import {
   characterCounting,
   assertItemInSet,
   assertCharacterSequency,
+  assertNumberRange,
 } from '../../src/utils/operations';
 
 describe('Assert Set in Object', () => {
@@ -95,5 +96,17 @@ describe('Assert Character Sequency', () => {
   it('should return false to incorrect character sequency limit ', () => {
     const set = ['a', 'a', 'a', 'b', 'c'];
     expect(assertCharacterSequency(set, 2)).toBeFalsy();
+  });
+});
+
+describe('Assert Character Sequency', () => {
+  it('should return true to numeral ir range ', () => {
+    expect(assertNumberRange(3, 1, 3)).toBeTruthy();
+    expect(assertNumberRange(1, 1, 3)).toBeTruthy();
+  });
+
+  it('should return false to numeral not in range ', () => {
+    expect(assertNumberRange(3, 1, 2)).toBeFalsy();
+    expect(assertNumberRange(0, 1, 2)).toBeFalsy();
   });
 });

@@ -51,3 +51,9 @@ export const assertCharacterSequency = (characters: string[], limit: number) => 
 
   return true;
 };
+
+export const assertNumberRange = (
+  numeral: number,
+  minLimit: number,
+  maxLimit: number,
+) => !(numeral < minLimit || numeral > maxLimit);
