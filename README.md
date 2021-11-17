@@ -68,7 +68,7 @@ npm test
 ## 📋 Development
 The entire solution was build using TDD and Clean Code best pratices. A [GitHub Project](https://github.com/LBeghini/NumeRomans/projects/1) was created to control the tasks needed to develop the project, and each issue describes better what each step did and had to implement.
 
-Before starting, an entire setup for a Node.js with Express and TypeScript was created, using liters and pre-commit rules.
+Before starting, an entire setup for a Node.js with Express and TypeScript was created, using linters and pre-commit rules.
 
 ## ⚖️ [License](https://github.com/LBeghini/NumeRomans/blob/main/LICENSE)
 Feel free to modify as you wish!
